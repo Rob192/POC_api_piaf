@@ -1,31 +1,20 @@
 ## intent:greet
-- Hi
-- Hey
-- Hi bot
-- Hey bot
-- Hello
-- Good morning
-- hi again
-- hi folks
+- Bonjour
+- Hello 
+- Salut 
+- Salut à toi 
+- Salut Robot ! 
 
 ## intent:bye
-- goodbye
-- goodnight
-- good bye
-- good night
-- see ya
-- toodle-oo
-- bye bye
-- gotta go
-- farewell
+- Au revoir 
+- Adieu 
+- A plus ! 
 
 ## intent:thank
-- Thanks
-- Thank you
-- Thank you so much
-- Thanks bot
-- Thanks for that
-- cheers
+- Merci beaucoup
+- Merci
+- Encore merci
+- Super! merci beaucoup
 
 
 ## intent:inform

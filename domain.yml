@@ -1,21 +1,23 @@
 intents:
   - greet
+  - welcome
   - bye
   - poser_question
   - inform
-
 
 slots:
   question:
     type: text
 
 responses:
+  utter_welcome_message:
+    - text: "Bonjour, je suis le prototype de chatbot de service-public.fr"
   utter_greet:
-    - text: "Hey! How are you?"
+    - text: "Vous avez une question ? Je ferai de mon mieux pour vous répondre ou vous rediriger vers nos agents. "
       buttons:
-        - title: "poser question"
+        - title: "Oui ! Poser ma question"
           payload: "/poser_question"
-        - title: "rien au revoir"
+        - title: "Non, rien. Au revoir"
           payload: "utter_bye"
   utter_ask_question:
     - text: "OK, allez-y et n'oubliez pas de terminer par un point d'interrogation ? "

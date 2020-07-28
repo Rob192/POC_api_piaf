@@ -6,7 +6,6 @@ def ask_question_to_piaf(question):
     response = requests.post(url, json=data)
     return response.json()['results'][0]['answers'][0]['answer']
 
-
 if __name__ == '__main__':
     response = ask_question_to_piaf("comment faire une carte d'identité ?")
     print(response)
