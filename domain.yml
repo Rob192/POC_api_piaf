@@ -4,6 +4,8 @@ intents:
   - bye
   - poser_question
   - inform
+  - user_satisfied
+  - user_not_satisfied
 
 slots:
   question:
@@ -23,6 +25,22 @@ responses:
     - text: "OK, allez-y et n'oubliez pas de terminer par un point d'interrogation ? "
   utter_bye:
     - text: Bye!
+  utter_bad_answer:
+    - text: "Que voulez-vous faire maintenant?"
+      buttons:
+        - title: "Trouver la réponse sur le site"
+          payload: "/bye"
+        - title: "Reformuler ma question"
+          payload: "/poser_question"
+  utter_are_you_satisfied:
+    - text: "Etes vous satisfait de cette réponse?"
+      buttons:
+        - title: "Oui"
+          payload: "/user_satisfied"
+        - title: "Non"
+          payload: "/user_not_satisfied"
+  utter_happy_bot:
+    - text: 'A votre service(-public) !'
 
 forms:
   - form_poser_question

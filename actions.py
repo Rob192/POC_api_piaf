@@ -9,6 +9,8 @@
 
 from typing import Any, Text, Dict, List, Union
 
+from rasa_sdk.events import AllSlotsReset
+
 from rasa_sdk.forms import FormAction
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -46,6 +48,12 @@ class QuestionForm(FormAction):
     ) -> List[Dict]:
         question = tracker.get_slot('question')
         response = ask_question_to_piaf(question)
-        dispatcher.utter_message(f"Thanks for asking the question: {question}")
-        dispatcher.utter_message(f'The response is {response}')
-        return []
+        if response['probability'] > 0.80:
+            dispatcher.utter_message(f"J'ai trouvé la réponse suivante: \n {response['answer']}")
+            dispatcher.utter_message(f"Dans le corps de texte suivant: {response['context']}")
+            dispatcher.utter_message(template='utter_are_you_satisfied')
+        else:
+            dispatcher.utter_message(f"C'est embarrassant ... je n'arrive pas à trouver la réponse à la question: '{question}'")
+            dispatcher.utter_message(template='utter_bad_answer')
+        return [AllSlotsReset()]
+
