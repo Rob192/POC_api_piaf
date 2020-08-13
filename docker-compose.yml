@@ -1,0 +1,16 @@
+version: '3.0'
+services:
+  rasa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5005:5005
+    command: run -m /models
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile_app
+    ports:
+      - "5055:5055"
