@@ -20,11 +20,11 @@ responses:
         - title: "Oui ! Poser ma question"
           payload: "/poser_question"
         - title: "Non, rien. Au revoir"
-          payload: "utter_bye"
+          payload: "/bye"
   utter_ask_question:
     - text: "OK, allez-y et n'oubliez pas de terminer par un point d'interrogation ? "
   utter_bye:
-    - text: Bye!
+    - text: "Au revoir !! Soyez prudent.e sur la route"
   utter_bad_answer:
     - text: "Que voulez-vous faire maintenant?"
       buttons:
