@@ -1,6 +1,10 @@
 ## greet
 * greet
   - utter_greet
+
+## start
+* start
+  - utter_welcome_message
   
 ## poser_une_question à Piaf
 * poser_question

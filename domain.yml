@@ -1,6 +1,6 @@
 intents:
   - greet
-  - welcome
+  - start
   - bye
   - poser_question
   - inform
