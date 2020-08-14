@@ -45,15 +45,16 @@ RUN python -m spacy download fr_core_news_sm && \
     python -m spacy link fr_core_news_sm fr
 
 # start a new build stage
-FROM base as runner
-
-# copy everything from /env
-COPY --from=builder app/env app/env
+FROM builder
 
 WORKDIR /app
 
+# copy everything from /env
+#COPY --from=builder app/env /env
+
 # make sure we use the virtualenv
 ENV PATH="/env/bin:$PATH"
+
 
 # copy files
 COPY . .
@@ -67,6 +68,7 @@ VOLUME /tmp
 
 ## change shell
 #SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+RUN rasa train
 
 # the entry point
 EXPOSE 5005
