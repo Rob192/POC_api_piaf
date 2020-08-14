@@ -4,8 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - 5005:5005
+    expose:
+      - 5005
     command: run -m /models
 
   app:
@@ -14,3 +14,14 @@ services:
       dockerfile: Dockerfile_app
     ports:
       - "5055:5055"
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      #I kept my SSL certs in a certs folder in project directory (Make sure to include this in .gitignore)
+      - ./certs:/etc/letsencrypt/live/<domain>
